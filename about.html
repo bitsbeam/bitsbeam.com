@@ -66,14 +66,28 @@
       </aside>
 
       <h2>How we work</h2>
-      <p><strong>AI first.</strong> In the age of AI code is cheap. Experience is not. That's why everything is open, and will always be. Need paid support? Contact. We'll help.</p>
+      <p><strong>AI first.</strong> In the age of AI code is cheap. Experience is not. That's why everything is open, and will always be. Need paid support? <a href="#contact">Contact us</a>. We'll help.</p>
       <p><strong>Open source by default.</strong> Our tools are MIT licensed and developed in the open on GitHub. You can read every line that touches your data.</p>
       <p><strong>Production first.</strong> We ship what we run ourselves, and we only call something done once it has survived real traffic.</p>
       <p><strong>Small surface, sharp tools.</strong> One gem, one config, one CLI. Fewer moving parts means fewer places for a bit to fall through.</p>
 
-      <h2>The fleet</h2>
-      <p><a href="https://cosmonats.bitsbeam.com">Cosmonats</a> is the first craft we've launched: background jobs and real-time event streaming for Ruby in one gem, backed by NATS. More are on the launch pad.</p>
-      <p>Want to follow along, contribute, or tell us where it hurts? Find the crew on <a href="https://github.com/bitsbeam">GitHub</a>.</p>
+      <h2 id="contact">Get in touch</h2>
+      <p>Questions, ideas or paid support — beam us a message.</p>
+
+      <form class="panel contact-form" action="mailto:d.vorotilin@gmail.com" method="post" enctype="text/plain" data-contact>
+        <label class="field">
+          <span class="field__label">Name</span>
+          <input class="field__input" name="name" autocomplete="name" required>
+        </label>
+        <label class="field">
+          <span class="field__label">Message</span>
+          <textarea class="field__input" name="message" rows="6" required></textarea>
+        </label>
+        <button class="btn btn--primary" type="submit">Send →</button>
+        <p class="contact-form__status" data-contact-status aria-live="polite" hidden>
+          Opening your mail app… Nothing happened? Write to <a href="mailto:d.vorotilin@gmail.com">d.vorotilin@gmail.com</a>.
+        </p>
+      </form>
     </article>
 
     <nav class="post-pager" aria-label="More">

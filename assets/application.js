@@ -13,6 +13,7 @@
  *   4. Copy              [data-copy]                 copy-to-clipboard buttons
  *   5. Reading progress  [data-reading-progress]     progress bar on posts
  *   6. Abduction         .ufo-scene[data-abduct]     occasional cow pickup + fly-away
+ *   7. Contact           form[data-contact]          mailto: form with a prefilled subject and body
  */
 
 
@@ -398,3 +399,30 @@
   schedule(FIRST_MS);
 })();
 
+
+/* --------------------------------------------------------------------------
+ * 7. Contact — turns a `mailto:` form into a clean prefilled email instead of
+ *    the browser's raw `name=...` body, then reveals the fallback note.
+ *
+ * Usage: <form action="mailto:you@example.com" data-contact>
+ *          <input name="name"> <textarea name="message"></textarea>
+ *          <p data-contact-status hidden>...</p>
+ *        </form>
+ * ------------------------------------------------------------------------ */
+(function () {
+  'use strict';
+  document.querySelectorAll('form[data-contact]').forEach((form) => {
+    const status = form.querySelector('[data-contact-status]');
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const name = form.elements.name.value.trim();
+      const message = form.elements.message.value.trim();
+      const subject = encodeURIComponent(`Hello from ${name}`);
+      const body = encodeURIComponent(`${message}\n\n— ${name}`);
+
+      window.location.href = `${form.getAttribute('action')}?subject=${subject}&body=${body}`;
+      if (status) status.hidden = false;
+    });
+  });
+})();
