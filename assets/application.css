@@ -1011,7 +1011,9 @@ textarea.field__input { resize: vertical; min-height: 140px; line-height: 1.5; }
 [data-theme="bitsbeam"] .craft-card:hover { transform: translateY(-2px); border-color: var(--craft, var(--color-cyan)); box-shadow: var(--shadow-hard); }
 [data-theme="bitsbeam"] .badge { border-radius: 4px; }
 [data-theme="bitsbeam"] .hero__title,
-[data-theme="bitsbeam"] .section-title { font-weight: 700; letter-spacing: -0.035em; }
+[data-theme="bitsbeam"] .section-title,
+[data-theme="bitsbeam"] .post-body h2 { font-weight: 700; letter-spacing: -0.035em; }
+[data-theme="bitsbeam"] .post-title { font-weight: 700; line-height: 0.98; text-shadow: none; }
 [data-theme="bitsbeam"] .site-footer { border-top: 1px solid var(--color-line); }
 
 /* bitsbeam: company layout — v2 ------------------------------------------- */
