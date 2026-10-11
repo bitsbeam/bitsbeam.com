@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>bitsbeam — every bit, beamed</title>
+  <meta name="description" content="bitsbeam builds open-source infrastructure that moves data from where it is to where it needs to be — without dropping a bit.">
+  <meta name="theme-color" content="#060913">
+  <meta property="og:title" content="bitsbeam">
+  <meta property="og:description" content="Every bit, beamed. Nothing dropped on the way.">
+  <meta property="og:image" content="assets/img/logo.svg">
+  <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=JetBrains+Mono:wght@400;600&display=swap">
+  <link rel="stylesheet" href="assets/application.css">
+  <script src="assets/application.js" defer></script>
+</head>
+<body data-theme="bitsbeam">
+  <canvas class="starfield" data-starfield data-density="1" data-parallax="0.25" aria-hidden="true"></canvas>
+
+  <!-- ===================== Navigation ===================== -->
+  <header class="site-nav">
+    <a class="brand" href="#top" aria-label="bitsbeam home">
+      <img class="brand__logo" src="assets/img/logo.svg" alt="" width="38" height="38">
+      <span class="brand__name">bitsbeam</span>
+    </a>
+    <nav class="site-nav__links" aria-label="Primary">
+      <a class="nav-secondary" href="#why">why bitsbeam</a>
+      <a href="#fleet">fleet</a>
+      <a class="nav-secondary" href="about.html">about</a>
+      <a class="pill-link" href="https://github.com/bitsbeam">GitHub ↗</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ===================== Hero ===================== -->
+    <section id="top" class="container hero">
+      <div class="hero__copy">
+        <p class="eyebrow">Open-source infrastructure · data in transit</p>
+        <h1 class="hero__title">bits&shy;beam</h1>
+        <p class="hero__lede">We build tools that move your data from where it is to where it needs to be.</p>
+        <p class="hero__tagline">Every bit beamed.<br>Nothing dropped on the way.</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#fleet">Meet the fleet ↓</a>
+          <a class="btn btn--terminal" href="https://github.com/bitsbeam">
+            <span class="btn__prompt">↗</span><span>github.com/bitsbeam</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- UFO abducting a cow; the beam carries the cow as 0101 data -->
+      <figure class="ufo-scene" aria-hidden="true">
+        <div class="beam" data-beam data-columns="11"></div>
+
+        <svg class="ufo-scene__layer" viewBox="0 0 400 480">
+          <defs>
+            <linearGradient id="beamGradient" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#8fe36f" stop-opacity="0.55"/>
+              <stop offset="0.55" stop-color="#8fe36f" stop-opacity="0.12"/>
+              <stop offset="1" stop-color="#8fe36f" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <path d="M-40 490 Q200 400 440 490 Z" fill="#101a33"/>
+          <circle cx="96" cy="462" r="9" fill="#0a1226"/>
+          <circle cx="310" cy="455" r="6" fill="#0a1226"/>
+          <g class="ufo-scene__ufo">
+            <polygon points="160,128 240,128 340,430 60,430" fill="url(#beamGradient)"/>
+            <path d="M140 94 C140 36 260 36 260 94 Z" fill="#9fe6ff" fill-opacity="0.85" stroke="#0b0f1e" stroke-width="4"/>
+            <circle cx="200" cy="74" r="15" fill="#8fe36f" stroke="#0b0f1e" stroke-width="3"/>
+            <ellipse cx="194" cy="72" rx="3.5" ry="5" fill="#0b0f1e"/>
+            <ellipse cx="206" cy="72" rx="3.5" ry="5" fill="#0b0f1e"/>
+            <ellipse cx="200" cy="102" rx="152" ry="34" fill="#c9cfdc" stroke="#0b0f1e" stroke-width="4"/>
+            <ellipse cx="200" cy="116" rx="96" ry="17" fill="#6d7894" stroke="#0b0f1e" stroke-width="4"/>
+            <ellipse cx="200" cy="126" rx="40" ry="8" fill="#7fe3ff" stroke="#0b0f1e" stroke-width="3"/>
+            <circle class="anim-blink" cx="78" cy="102" r="6" fill="#ffb15a" stroke="#0b0f1e" stroke-width="2.5"/>
+            <circle class="anim-blink delay-1" cx="118" cy="110" r="6" fill="#7fe3ff" stroke="#0b0f1e" stroke-width="2.5"/>
+            <circle class="anim-blink delay-2" cx="282" cy="110" r="6" fill="#7fe3ff" stroke="#0b0f1e" stroke-width="2.5"/>
+            <circle class="anim-blink delay-3" cx="322" cy="102" r="6" fill="#ffb15a" stroke="#0b0f1e" stroke-width="2.5"/>
+          </g>
+        </svg>
+
+        <svg class="ufo-scene__layer ufo-scene__layer--front" viewBox="0 0 400 480">
+          <g class="ufo-scene__cow">
+            <!-- far legs -->
+            <rect x="158" y="310" width="13" height="36" rx="5" fill="#f4f1e8" stroke="#0b0f1e" stroke-width="3"/>
+            <rect x="180" y="310" width="13" height="40" rx="5" fill="#f4f1e8" stroke="#0b0f1e" stroke-width="3"/>
+            <rect x="222" y="310" width="13" height="38" rx="5" fill="#f4f1e8" stroke="#0b0f1e" stroke-width="3"/>
+            <rect x="244" y="310" width="13" height="34" rx="5" fill="#f4f1e8" stroke="#0b0f1e" stroke-width="3"/>
+            <!-- tail -->
+            <path d="M150 290 Q126 300 134 328" stroke="#0b0f1e" stroke-width="4" fill="none" stroke-linecap="round"/>
+            <circle cx="134" cy="330" r="6" fill="#0b0f1e"/>
+            <!-- body + spots -->
+            <rect x="146" y="266" width="122" height="60" rx="30" fill="#f4f1e8" stroke="#0b0f1e" stroke-width="4"/>
+            <ellipse cx="180" cy="284" rx="17" ry="11" fill="#0b0f1e"/>
+            <ellipse cx="234" cy="306" rx="13" ry="9" fill="#0b0f1e"/>
+            <ellipse cx="212" cy="277" rx="8" ry="6" fill="#0b0f1e"/>
+            <!-- udder -->
+            <rect x="189.75" y="334" width="3.5" height="7" rx="1.75" fill="#e88aa0" stroke="#0b0f1e" stroke-width="2"/>
+            <rect x="195.25" y="335" width="3.5" height="7.5" rx="1.75" fill="#e88aa0" stroke="#0b0f1e" stroke-width="2"/>
+            <rect x="200.75" y="334" width="3.5" height="7" rx="1.75" fill="#e88aa0" stroke="#0b0f1e" stroke-width="2"/>
+            <path d="M185 323 C184.5 333 191 337 197 337 C203 337 209.5 333 209 323 Z" fill="#f3a6b8" stroke="#0b0f1e" stroke-width="3" stroke-linejoin="round"/>
+            <path d="M189 328 Q191.5 333 196 334" stroke="#ffffff" stroke-width="1.8" fill="none" stroke-linecap="round" opacity="0.6"/>
+            <!-- near legs (in front of udder) -->
+            <path d="M180 320 L180 345 Q180 350 186.5 350 Q193 350 193 345 L193 320" fill="#f4f1e8" stroke="#0b0f1e" stroke-width="3" stroke-linejoin="round"/>
+            <path d="M222 320 L222 343 Q222 348 228.5 348 Q235 348 235 343 L235 320" fill="#f4f1e8" stroke="#0b0f1e" stroke-width="3" stroke-linejoin="round"/>
+            <!-- horns, ears, head -->
+            <path d="M261 252 Q254 234 266 236" stroke="#0b0f1e" stroke-width="4" fill="none" stroke-linecap="round"/>
+            <path d="M293 252 Q300 234 288 236" stroke="#0b0f1e" stroke-width="4" fill="none" stroke-linecap="round"/>
+            <ellipse cx="250" cy="258" rx="11" ry="5.5" fill="#f4f1e8" stroke="#0b0f1e" stroke-width="3"/>
+            <ellipse cx="304" cy="258" rx="11" ry="5.5" fill="#f4f1e8" stroke="#0b0f1e" stroke-width="3"/>
+            <rect x="252" y="246" width="50" height="44" rx="18" fill="#f4f1e8" stroke="#0b0f1e" stroke-width="4"/>
+            <rect x="258" y="272" width="38" height="20" rx="10" fill="#f3a6b8" stroke="#0b0f1e" stroke-width="3"/>
+            <circle cx="269" cy="282" r="2.6" fill="#0b0f1e"/>
+            <circle cx="285" cy="282" r="2.6" fill="#0b0f1e"/>
+            <circle cx="267" cy="261" r="4" fill="#0b0f1e"/>
+            <circle cx="287" cy="261" r="4" fill="#0b0f1e"/>
+          </g>
+        </svg>
+      </figure>
+
+      <a class="scroll-hint" href="#why">
+        <span>scroll to beam up</span><span class="scroll-hint__arrow" aria-hidden="true">↓</span>
+      </a>
+    </section>
+
+    <!-- ===================== Why bitsbeam ===================== -->
+    <section id="why" class="container about" aria-labelledby="about-title">
+      <div class="about__copy">
+        <p class="eyebrow">Why “bitsbeam”?</p>
+        <h2 id="about-title" class="section-title">The UFO never drops the cow.</h2>
+        <p class="about__text">A flying saucer beams the cow up whole — nothing lost on the way. That's how we treat your data: every bit, beamed from where it is to where it needs to be.</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="about.html">About →</a>
+        </div>
+      </div>
+      <div class="panel bits-panel">
+        <div class="bits-panel__bits">01100011 01101111 01110111 00100000 01100010 01100101 01100001 01101101 01100101 01100100 00100000 01110101 01110000 00100000 01110011 01100001 01100110 01100101 01101100 01111001</div>
+        <div class="bits-panel__foot">
+          <span>🐄 → 01100011 01101111 01110111</span>
+          <span class="bits-panel__caption">“cow”, in transit</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== Fleet ===================== -->
+    <section id="fleet" class="container fleet" aria-labelledby="fleet-title">
+      <div class="section-head">
+        <div class="section-head__titles">
+          <p class="eyebrow">The fleet</p>
+          <h2 id="fleet-title" class="section-title">Crafts we've launched.</h2>
+        </div>
+        <span class="section-head__meta">4 crafts in orbit</span>
+      </div>
+
+      <a class="post-feature" href="https://cosmonats.bitsbeam.com">
+        <div class="post-feature__art" aria-hidden="true">
+          <div class="post-feature__bits">01100011 01101111 01110111 00100000 01100010 01100101 01100001 01101101 01100101 01100100 00100000 01110101 01110000 00100000 01110011 01100001 01100110 01100101 01101100 01111001 01100011 01101111 01110111 00100000 01100010 01100101 01100001 01101101 01100101 01100100 00100000 01110101 01110000 00100000 01110011 01100001 01100110 01100101 01101100 01111001</div>
+          <div class="post-feature__emblem">
+            <img src="assets/img/cosmonats.svg" alt="">
+            <span class="post-feature__emblem-tag">Ruby gem</span>
+          </div>
+        </div>
+        <div class="post-feature__body">
+          <div class="post-meta">
+            <span class="badge">In orbit</span>
+            <span class="post-meta__accent">Craft #001</span>
+            <span>MIT licensed</span>
+          </div>
+          <h3 class="post-feature__title">Cosmonats</h3>
+          <p class="post-feature__excerpt">Background jobs and real-time event streaming for Ruby — one gem, backed by NATS. No Redis. No DB polling. No message silently dropped.</p>
+          <span class="read-more">Visit cosmonats →</span>
+        </div>
+      </a>
+
+      <p class="post-list__label">RubyCDP trilogy · Ruby × Chrome DevTools · <a href="https://rubycdp.com">rubycdp.com ↗</a></p>
+      <div class="fleet-grid">
+        <a class="craft-card" href="https://ferrum.rubycdp.com" style="--craft: #a07cff">
+          <img class="craft-card__logo" src="assets/img/ferrum.svg" alt="" width="72" height="72">
+          <div class="post-meta"><span class="post-meta__accent">Craft #002</span><span>Ruby gem</span></div>
+          <h3 class="craft-card__title">Ferrum</h3>
+          <p class="craft-card__kicker">The fearless Ruby Chrome driver</p>
+          <p class="craft-card__desc">A high-level Ruby API to Chrome over raw CDP — no Selenium, no WebDriver, no ChromeDriver.</p>
+          <span class="craft-card__more">Visit ferrum.rubycdp.com →</span>
+        </a>
+        <a class="craft-card" href="https://cuprite.rubycdp.com" style="--craft: #ff3f7f">
+          <img class="craft-card__logo" src="assets/img/cuprite.svg" alt="" width="72" height="72">
+          <div class="post-meta"><span class="post-meta__accent">Craft #003</span><span>Ruby gem</span></div>
+          <h3 class="craft-card__title">Cuprite</h3>
+          <p class="craft-card__kicker">Headless Chrome driver for Capybara</p>
+          <p class="craft-card__desc">A pure Ruby Capybara driver built on Ferrum. Pause any spec mid-flight and poke around.</p>
+          <span class="craft-card__more">Visit cuprite.rubycdp.com →</span>
+        </a>
+        <a class="craft-card" href="https://vessel.rubycdp.com" style="--craft: #2fc6ff">
+          <img class="craft-card__logo" src="assets/img/vessel.svg" alt="" width="72" height="72">
+          <div class="post-meta"><span class="post-meta__accent">Craft #004</span><span>Ruby gem</span></div>
+          <h3 class="craft-card__title">Vessel</h3>
+          <p class="craft-card__kicker">Fast as Chrome. Dead simple.</p>
+          <p class="craft-card__desc">A web crawling framework on Ferrum. Describe your Cargo, set sail, haul the data home.</p>
+          <span class="craft-card__more">Visit vessel.rubycdp.com →</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== Footer ===================== -->
+  <footer class="site-footer">
+    <span>© 2026 bitsbeam</span>
+    <nav class="site-footer__links" aria-label="Footer">
+      <a href="https://github.com/bitsbeam">GitHub</a>
+      <a href="https://cosmonats.bitsbeam.com">Cosmonats</a>
+      <a href="#top">Back to the saucer ↑</a>
+    </nav>
+  </footer>
+</body>
+</html>
