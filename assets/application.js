@@ -12,6 +12,7 @@
  *   3. Journey           .journey [data-journey-map] scroll-driven rocket / UFO
  *   4. Copy              [data-copy]                 copy-to-clipboard buttons
  *   5. Reading progress  [data-reading-progress]     progress bar on posts
+ *   6. Abduction         .ufo-scene[data-abduct]     occasional cow pickup + fly-away
  */
 
 
@@ -360,3 +361,40 @@
   window.addEventListener('resize', update);
   update();
 })();
+
+
+/* --------------------------------------------------------------------------
+ * 6. Abduction — every so often the cow is beamed all the way up, the beam
+ *    shuts off and the saucer flies away, then returns and drops the cow back.
+ *
+ * Usage: <figure class="ufo-scene" data-abduct> (bitsbeam hero)
+ * Phases are CSS classes on the figure; timings live here, motion in CSS.
+ * ------------------------------------------------------------------------ */
+(function () {
+  'use strict';
+  const scene = document.querySelector('.ufo-scene[data-abduct]');
+  if (!scene || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const FIRST_MS = 14000;              // first abduction after load
+  const GAP_MIN = 40000, GAP_MAX = 70000;
+  const steps = [                      // [ms from start, class, add?]
+    [0,     'abduct-lift',     true],  // cow rises, shrinking into the saucer
+    [2900,  'abduct-beam-off', true],  // beam shuts down
+    [3700,  'abduct-away',     true],  // saucer flies off, getting smaller
+    [8200,  'abduct-away',     false], // ...comes back
+    [10800, 'abduct-beam-off', false], // beam on
+    [11500, 'abduct-lift',     false], // cow lowered back down
+  ];
+  const DURATION = 14500;
+
+  function run() {
+    if (document.hidden) return schedule();
+    steps.forEach(([t, cls, on]) => setTimeout(() => scene.classList.toggle(cls, on), t));
+    setTimeout(schedule, DURATION);
+  }
+  function schedule(ms) {
+    setTimeout(run, ms != null ? ms : GAP_MIN + Math.random() * (GAP_MAX - GAP_MIN));
+  }
+  schedule(FIRST_MS);
+})();
+

@@ -955,3 +955,147 @@ code.inline {
 .craft-card__kicker { font-family: var(--font-mono); font-size: 13px; color: var(--craft); }
 .craft-card__desc { font-size: 16px; line-height: 1.5; color: var(--color-soft); text-wrap: pretty; flex: 1; }
 .craft-card__more { font-family: var(--font-mono); font-size: 13px; color: var(--craft); }
+
+/* bitsbeam: field scene (city, crop circles, grass) ----------------------- */
+
+/* bitsbeam: a more official finish — same system, quieter edges ----------- */
+/* Flatter, tighter: smaller radii, hairline borders, soft depth instead of
+   hard offset shadows. Everything else (type, colours, layout) is shared. */
+[data-theme="bitsbeam"] {
+  --radius-sm: 6px;
+  --radius: 10px;
+  --radius-lg: 12px;
+  --shadow-hard: 0 24px 48px -28px rgba(0, 0, 0, .8);
+  --shadow-hard-active: 0 0 0 1px var(--color-cyan), 0 24px 48px -28px rgba(0, 0, 0, .8);
+}
+[data-theme="bitsbeam"] .site-nav { border-bottom: 1px solid var(--color-line); }
+[data-theme="bitsbeam"] .site-nav__links .pill-link { border-radius: 6px; border-width: 1px; }
+[data-theme="bitsbeam"] .btn--primary { border: 1px solid transparent; box-shadow: none; font-weight: 600; }
+[data-theme="bitsbeam"] .btn--primary:hover { transform: none; box-shadow: none; background: var(--color-ink); }
+[data-theme="bitsbeam"] .btn--terminal { border-width: 1px; }
+[data-theme="bitsbeam"] .panel,
+[data-theme="bitsbeam"] .post-feature,
+[data-theme="bitsbeam"] .craft-card { border: 1px solid var(--color-line-2); }
+[data-theme="bitsbeam"] .post-feature:hover,
+[data-theme="bitsbeam"] .craft-card:hover { transform: translateY(-2px); border-color: var(--craft, var(--color-cyan)); box-shadow: var(--shadow-hard); }
+[data-theme="bitsbeam"] .badge { border-radius: 4px; }
+[data-theme="bitsbeam"] .hero__title,
+[data-theme="bitsbeam"] .section-title { font-weight: 700; letter-spacing: -0.035em; }
+[data-theme="bitsbeam"] .site-footer { border-top: 1px solid var(--color-line); }
+
+/* bitsbeam: company layout — v2 ------------------------------------------- */
+/* Same tokens/fonts as cosmonats; different structure: centred hero over a
+   full-bleed landscape, solid sections (stars only in the hero), hairline
+   rules, product index table, column footer. Binary section numbers. */
+.bb-label { display: flex; align-items: center; gap: 12px; font-family: var(--font-mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--color-muted); }
+.bb-label b { color: var(--color-cyan); font-weight: 600; }
+.bb-h2 { font-size: clamp(34px, 4.4vw, 56px); line-height: 1.02; font-weight: 700; letter-spacing: -0.035em; text-wrap: balance; }
+.bb-text { font-size: 18px; line-height: 1.6; color: var(--color-soft); max-width: 48ch; text-wrap: pretty; }
+
+.bb-hero { position: relative; z-index: 2; padding-top: clamp(120px, 15vh, 168px); display: flex; flex-direction: column; align-items: center; text-align: center; gap: 28px; overflow: hidden; }
+.bb-hero__copy { display: flex; flex-direction: column; align-items: center; gap: 24px; max-width: 920px; padding: 0 var(--gutter); }
+.bb-hero__chip { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-mono); font-size: 12px; color: var(--color-soft); border: 1px solid var(--color-line-2); border-radius: 999px; padding: 7px 14px; background: rgba(6, 9, 19, .6); }
+.bb-hero__dot { width: 7px; height: 7px; border-radius: 50%; background: var(--color-cyan); box-shadow: 0 0 8px var(--color-cyan); }
+.bb-hero__title { font-size: clamp(44px, 6.6vw, 96px); line-height: 0.98; font-weight: 700; letter-spacing: -0.045em; text-wrap: balance; }
+.bb-hero__title em { font-style: normal; color: var(--color-cyan); }
+.bb-hero__lede { font-size: clamp(18px, 1.6vw, 21px); line-height: 1.5; color: var(--color-soft); max-width: 58ch; text-wrap: pretty; }
+.bb-hero__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+
+.bb-stage { --band-h: clamp(150px, 20vw, 240px); --fig-w: clamp(260px, 30vw, 400px); width: 100%; display: flex; flex-direction: column; align-items: center; }
+.bb-stage .ufo-scene { width: var(--fig-w); max-width: none; z-index: 2; }
+/* beam bottom sits at 89.6% of the figure; horizon at 50% of the band */
+.bb-band { display: block; width: 100%; height: var(--band-h); object-fit: cover; object-position: center bottom; margin-top: calc(-1 * (var(--fig-w) * 0.125 + var(--band-h) * 0.5)); position: relative; z-index: 1; }
+
+.bb-ticker { position: relative; z-index: 2; overflow: hidden; background: var(--color-panel-deep); border-top: 1px solid var(--color-line); border-bottom: 1px solid var(--color-line); padding: 14px 0;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent); }
+.bb-ticker__track { display: flex; gap: 56px; width: max-content; font-family: var(--font-mono); font-size: 13px; color: var(--color-muted); white-space: nowrap; animation: bb-ticker 60s linear infinite; }
+.bb-ticker__track b { color: var(--color-cyan); font-weight: 600; }
+@keyframes bb-ticker { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .bb-ticker__track { animation: none; } }
+
+.bb-section { position: relative; z-index: 2; background: var(--color-bg); padding: clamp(80px, 10vw, 128px) 0; border-bottom: 1px solid var(--color-line); }
+.bb-section--deep { background: var(--color-panel-deep); }
+.bb-split { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(40px, 6vw, 96px); align-items: start; }
+.bb-split--center { align-items: center; }
+.bb-split__head { display: flex; flex-direction: column; gap: 20px; }
+@media (max-width: 860px) { .bb-split { grid-template-columns: minmax(0, 1fr); } }
+
+.bb-principles { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--color-line-2); }
+.bb-principle { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 20px; padding: 28px 0; border-bottom: 1px solid var(--color-line-2); }
+.bb-principle__n { font-family: var(--font-mono); font-size: 14px; color: var(--color-cyan); padding-top: 6px; }
+.bb-principle h3 { font-size: 24px; font-weight: 700; letter-spacing: -0.02em; margin: 0 0 8px; }
+.bb-principle p { margin: 0; font-size: 17px; line-height: 1.55; color: var(--color-soft); max-width: 52ch; text-wrap: pretty; }
+
+.bb-products { display: flex; flex-direction: column; gap: 56px; }
+.bb-group { display: flex; flex-direction: column; }
+.bb-group__label { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin: 0; padding-bottom: 14px; border-bottom: 1px solid var(--color-line-2); font-family: var(--font-mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--color-muted); }
+.bb-product { --craft: var(--color-cyan); display: grid; grid-template-columns: 56px minmax(0, 240px) minmax(0, 1fr) auto; gap: 28px; align-items: center; padding: 24px 16px; border-bottom: 1px solid var(--color-line); color: var(--color-ink); transition: background .2s; }
+.bb-product:hover { background: var(--color-panel); color: var(--color-ink); }
+.bb-product img { width: 56px; height: 56px; object-fit: contain; }
+.bb-product__name { display: flex; flex-direction: column; gap: 6px; font-size: 26px; font-weight: 700; letter-spacing: -0.02em; line-height: 1; }
+.bb-product__sub { font-family: var(--font-mono); font-size: 12px; font-weight: 400; letter-spacing: 0; color: var(--craft); }
+.bb-product__desc { font-size: 16px; line-height: 1.5; color: var(--color-soft); text-wrap: pretty; }
+.bb-product__go { font-family: var(--font-mono); font-size: 13px; color: var(--color-muted); white-space: nowrap; transition: color .2s; }
+.bb-product:hover .bb-product__go { color: var(--craft); }
+@media (max-width: 860px) {
+  .bb-product { grid-template-columns: 48px minmax(0, 1fr); gap: 8px 18px; padding: 22px 4px; }
+  .bb-product img { width: 48px; height: 48px; grid-row: span 3; align-self: start; }
+  .bb-product__desc, .bb-product__go { grid-column: 2; }
+}
+
+.bb-footer { position: relative; z-index: 2; background: var(--color-bg); padding: 72px 0 32px; }
+.bb-footer__grid { display: grid; grid-template-columns: minmax(0, 2fr) repeat(3, minmax(0, 1fr)); gap: 40px; padding-bottom: 48px; }
+.bb-footer__brand { display: flex; flex-direction: column; gap: 16px; }
+.bb-footer__brand p { margin: 0; font-family: var(--font-mono); font-size: 13px; color: var(--color-muted); }
+.bb-footer__col { display: flex; flex-direction: column; gap: 12px; }
+.bb-footer__col h4 { margin: 0 0 4px; font-family: var(--font-mono); font-size: 12px; font-weight: 400; letter-spacing: .1em; text-transform: uppercase; color: var(--color-muted); }
+.bb-footer__col a { font-size: 15px; color: var(--color-soft); }
+.bb-footer__col a:hover { color: var(--color-cyan); }
+.bb-footer__legal { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-top: 24px; border-top: 1px solid var(--color-line); font-family: var(--font-mono); font-size: 12px; color: var(--color-muted); }
+@media (max-width: 760px) { .bb-footer__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } .bb-footer__brand { grid-column: 1 / -1; } }
+
+/* bitsbeam: abduction sequence (driven by application.js §6) ------------- */
+/* Percentages are of the 400×480 scene: cow centre ≈ 55% 62%, saucer belly ≈ 50% 26%. */
+.ufo-scene[data-abduct] .ufo-scene__layer--front {
+  transform-origin: 55% 62%;
+  transition: transform 2.6s cubic-bezier(.3, .1, .3, 1), opacity .4s ease-out;
+}
+.ufo-scene[data-abduct] .ufo-scene__layer:not(.ufo-scene__layer--front) {
+  transform-origin: 50% 22%;
+  transition: transform 2.4s cubic-bezier(.2, .7, .3, 1), opacity .3s ease-out;
+}
+.ufo-scene[data-abduct] .beam,
+.ufo-scene[data-abduct] .ufo-scene__ufo > polygon { transition: opacity .6s ease; }
+
+.ufo-scene.abduct-lift .ufo-scene__layer--front {
+  transform: translate(-5%, -36%) scale(.1);
+  opacity: 0;
+  transition: transform 2.6s cubic-bezier(.55, 0, .7, .4), opacity .35s ease-in 2.3s;
+}
+.ufo-scene.abduct-beam-off .beam,
+.ufo-scene.abduct-beam-off .ufo-scene__ufo > polygon { opacity: 0; }
+.ufo-scene.abduct-away .ufo-scene__layer:not(.ufo-scene__layer--front) {
+  transform: translate(120%, -95%) scale(.015);
+  opacity: 0;
+  /* shrinks to a dot, lingers a beat, then winks out */
+  transition: transform 2.6s cubic-bezier(.6, 0, .9, .5), opacity .25s ease-in 3s;
+}
+
+/* bitsbeam: beam's glow on the grass — separate so it can switch off with the beam */
+.bb-stage { position: relative; }
+.bb-glow {
+  position: absolute; left: 50%; bottom: calc(var(--band-h) * 114 / 240);
+  width: calc(var(--band-h) * 520 / 240); height: calc(var(--band-h) * 44 / 240);
+  transform: translate(-50%, 50%);
+  background: radial-gradient(closest-side, rgba(143, 227, 111, .4), rgba(143, 227, 111, 0));
+  mix-blend-mode: screen; pointer-events: none; z-index: 1;
+  transition: opacity .6s ease;
+}
+.bb-stage:has(.abduct-beam-off) .bb-glow { opacity: 0; }
+
+/* bitsbeam: city lights (inline SVG over the band so they can animate) --- */
+.bb-lights { position: absolute; left: 0; bottom: 0; width: 100%; height: var(--band-h); z-index: 1; pointer-events: none; overflow: visible; }
+.bb-lights .bb-win { animation-name: bb-win; animation-iteration-count: infinite; }
+/* on ~45% of the cycle, then off; cycles of 12–20s give 5–10s dark spells */
+@keyframes bb-win { 0%, 54.9% { opacity: 1; } 55%, 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .bb-lights .bb-win { animation: none; } }

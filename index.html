@@ -18,7 +18,7 @@
   <script src="assets/application.js" defer></script>
 </head>
 <body data-theme="bitsbeam">
-  <canvas class="starfield" data-starfield data-density="1" data-parallax="0.25" aria-hidden="true"></canvas>
+  <canvas class="starfield" data-starfield data-density="0.7" data-parallax="0.2" aria-hidden="true"></canvas>
 
   <!-- ===================== Navigation ===================== -->
   <header class="site-nav">
@@ -27,31 +27,29 @@
       <span class="brand__name">bitsbeam</span>
     </a>
     <nav class="site-nav__links" aria-label="Primary">
-      <a class="nav-secondary" href="#why">why bitsbeam</a>
-      <a href="#fleet">fleet</a>
-      <a class="nav-secondary" href="about.html">about</a>
+      <a class="nav-secondary" href="#company">Company</a>
+      <a href="#products">Products</a>
+      <a class="nav-secondary" href="#why">Why bitsbeam</a>
+      <a class="nav-secondary" href="about.html">About</a>
       <a class="pill-link" href="https://github.com/bitsbeam">GitHub ↗</a>
     </nav>
   </header>
 
   <main>
-    <!-- ===================== Hero ===================== -->
-    <section id="top" class="container hero">
-      <div class="hero__copy">
-        <p class="eyebrow">Open-source infrastructure · data in transit</p>
-        <h1 class="hero__title">bits&shy;beam</h1>
-        <p class="hero__lede">We build tools that move your data from where it is to where it needs to be.</p>
-        <p class="hero__tagline">Every bit beamed.<br>Nothing dropped on the way.</p>
-        <div class="hero__actions">
-          <a class="btn btn--primary" href="#fleet">Meet the fleet ↓</a>
-          <a class="btn btn--terminal" href="https://github.com/bitsbeam">
-            <span class="btn__prompt">↗</span><span>github.com/bitsbeam</span>
-          </a>
+    <!-- ===================== Hero: copy, UFO + cow, landscape band ===================== -->
+    <section id="top" class="bb-hero">
+      <div class="bb-hero__copy">
+        <span class="bb-hero__chip"><span class="bb-hero__dot"></span>Open-source by default</span>
+        <h1 class="bb-hero__title">Every bit, beamed.<br><em>Nothing dropped.</em></h1>
+        <p class="bb-hero__lede">bitsbeam builds open-source tools that move your data from where it is to where it needs to be — jobs, streams and browsers, delivered whole.</p>
+        <div class="bb-hero__actions">
+          <a class="btn btn--primary" href="#products">Our products</a>
+          <a class="btn btn--terminal" href="https://github.com/bitsbeam"><span class="btn__prompt">↗</span><span>github.com/bitsbeam</span></a>
         </div>
       </div>
 
-      <!-- UFO abducting a cow; the beam carries the cow as 0101 data -->
-      <figure class="ufo-scene" aria-hidden="true">
+      <div class="bb-stage">
+      <figure class="ufo-scene" data-abduct aria-hidden="true">
         <div class="beam" data-beam data-columns="11"></div>
 
         <svg class="ufo-scene__layer" viewBox="0 0 400 480">
@@ -62,9 +60,6 @@
               <stop offset="1" stop-color="#8fe36f" stop-opacity="0"/>
             </linearGradient>
           </defs>
-          <path d="M-40 490 Q200 400 440 490 Z" fill="#101a33"/>
-          <circle cx="96" cy="462" r="9" fill="#0a1226"/>
-          <circle cx="310" cy="455" r="6" fill="#0a1226"/>
           <g class="ufo-scene__ufo">
             <polygon points="160,128 240,128 340,430 60,430" fill="url(#beamGradient)"/>
             <path d="M140 94 C140 36 260 36 260 94 Z" fill="#9fe6ff" fill-opacity="0.85" stroke="#0b0f1e" stroke-width="4"/>
@@ -119,22 +114,83 @@
           </g>
         </svg>
       </figure>
-
-      <a class="scroll-hint" href="#why">
-        <span>scroll to beam up</span><span class="scroll-hint__arrow" aria-hidden="true">↓</span>
-      </a>
+        <img class="bb-band" src="assets/img/landscape.svg" alt="" aria-hidden="true">
+        <div class="bb-glow" aria-hidden="true"></div>
+        <svg class="bb-lights" viewBox="0 0 2400 240" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><g fill="#ffcf7a" opacity=".85"><rect x="564" y="83" width="3" height="4" class="bb-win" style="animation-duration:15.6s;animation-delay:-6.2s"/><rect x="571" y="83" width="3" height="4" class="bb-win" style="animation-duration:18.9s;animation-delay:-8.2s"/><rect x="564" y="101" width="3" height="4"/><rect x="571" y="101" width="3" height="4"/><rect x="571" y="110" width="3" height="4"/><rect x="591" y="33" width="3" height="4"/><rect x="584" y="42" width="3" height="4"/><rect x="591" y="51" width="3" height="4"/><rect x="584" y="60" width="3" height="4" class="bb-win" style="animation-duration:15.0s;animation-delay:-11.8s"/><rect x="591" y="60" width="3" height="4"/><rect x="591" y="78" width="3" height="4" fill="#9fe6ff"/><rect x="591" y="87" width="3" height="4" class="bb-win" style="animation-duration:13.7s;animation-delay:-14.7s"/><rect x="591" y="96" width="3" height="4"/><rect x="618" y="83" width="3" height="4"/><rect x="625" y="101" width="3" height="4"/><rect x="638" y="86" width="3" height="4"/><rect x="673" y="86" width="3" height="4"/><rect x="638" y="95" width="3" height="4"/><rect x="645" y="104" width="3" height="4" class="bb-win" style="animation-duration:13.5s;animation-delay:-11.5s"/><rect x="659" y="104" width="3" height="4"/><rect x="666" y="104" width="3" height="4" class="bb-win" style="animation-duration:15.1s;animation-delay:-17.7s"/><rect x="645" y="113" width="3" height="4"/><rect x="710" y="99" width="3" height="4" fill="#9fe6ff" class="bb-win" style="animation-duration:16.9s;animation-delay:-19.2s"/><rect x="717" y="99" width="3" height="4" fill="#9fe6ff"/><rect x="724" y="99" width="3" height="4" fill="#9fe6ff"/><rect x="703" y="108" width="3" height="4" fill="#9fe6ff" class="bb-win" style="animation-duration:17.7s;animation-delay:-16.2s"/><rect x="710" y="108" width="3" height="4"/><rect x="717" y="108" width="3" height="4"/><rect x="724" y="117" width="3" height="4" class="bb-win" style="animation-duration:18.4s;animation-delay:-19.0s"/><rect x="756" y="29" width="3" height="4"/><rect x="770" y="29" width="3" height="4" fill="#9fe6ff"/><rect x="777" y="29" width="3" height="4"/><rect x="763" y="38" width="3" height="4"/><rect x="777" y="38" width="3" height="4" fill="#9fe6ff"/><rect x="749" y="47" width="3" height="4"/><rect x="770" y="83" width="3" height="4" class="bb-win" style="animation-duration:19.6s;animation-delay:-16.6s"/><rect x="770" y="92" width="3" height="4"/><rect x="742" y="101" width="3" height="4"/><rect x="763" y="110" width="3" height="4" class="bb-win" style="animation-duration:17.3s;animation-delay:-19.0s"/><rect x="803" y="66" width="3" height="4"/><rect x="796" y="75" width="3" height="4" fill="#9fe6ff"/><rect x="789" y="84" width="3" height="4"/><rect x="803" y="84" width="3" height="4"/><rect x="803" y="93" width="3" height="4" fill="#9fe6ff"/><rect x="796" y="102" width="3" height="4"/><rect x="796" y="111" width="3" height="4"/><rect x="843" y="60" width="3" height="4" fill="#9fe6ff"/><rect x="815" y="69" width="3" height="4"/><rect x="822" y="69" width="3" height="4"/><rect x="850" y="69" width="3" height="4"/><rect x="815" y="78" width="3" height="4" class="bb-win" style="animation-duration:12.4s;animation-delay:-16.5s"/><rect x="850" y="78" width="3" height="4" class="bb-win" style="animation-duration:14.8s;animation-delay:-11.0s"/><rect x="829" y="96" width="3" height="4"/><rect x="836" y="96" width="3" height="4" fill="#9fe6ff"/><rect x="815" y="105" width="3" height="4" fill="#9fe6ff" class="bb-win" style="animation-duration:15.0s;animation-delay:-3.5s"/><rect x="822" y="105" width="3" height="4"/><rect x="843" y="105" width="3" height="4"/><rect x="850" y="105" width="3" height="4"/><rect x="822" y="114" width="3" height="4" class="bb-win" style="animation-duration:19.8s;animation-delay:-19.9s"/><rect x="836" y="114" width="3" height="4" fill="#9fe6ff"/><rect x="843" y="114" width="3" height="4" fill="#9fe6ff"/><rect x="881" y="59" width="3" height="4" fill="#9fe6ff"/><rect x="874" y="77" width="3" height="4" fill="#9fe6ff"/><rect x="881" y="77" width="3" height="4"/><rect x="867" y="86" width="3" height="4"/><rect x="874" y="86" width="3" height="4" fill="#9fe6ff"/><rect x="881" y="86" width="3" height="4"/><rect x="867" y="95" width="3" height="4"/><rect x="874" y="104" width="3" height="4"/><rect x="881" y="104" width="3" height="4"/><rect x="867" y="113" width="3" height="4"/><rect x="888" y="113" width="3" height="4" class="bb-win" style="animation-duration:13.3s;animation-delay:-19.2s"/><rect x="903" y="77" width="3" height="4"/><rect x="938" y="86" width="3" height="4"/><rect x="917" y="95" width="3" height="4"/><rect x="917" y="104" width="3" height="4"/><rect x="924" y="104" width="3" height="4" fill="#9fe6ff"/><rect x="931" y="113" width="3" height="4"/><rect x="972" y="61" width="3" height="4"/><rect x="958" y="70" width="3" height="4"/><rect x="972" y="88" width="3" height="4" class="bb-win" style="animation-duration:18.4s;animation-delay:-17.5s"/><rect x="951" y="97" width="3" height="4"/><rect x="972" y="106" width="3" height="4"/><rect x="951" y="115" width="3" height="4"/><rect x="965" y="115" width="3" height="4"/><rect x="984" y="94" width="3" height="4"/><rect x="991" y="94" width="3" height="4" class="bb-win" style="animation-duration:12.2s;animation-delay:-0.7s"/><rect x="1005" y="94" width="3" height="4"/><rect x="998" y="112" width="3" height="4"/><rect x="1414" y="58" width="3" height="4"/><rect x="1421" y="58" width="3" height="4" fill="#9fe6ff"/><rect x="1421" y="67" width="3" height="4"/><rect x="1435" y="67" width="3" height="4"/><rect x="1428" y="76" width="3" height="4"/><rect x="1421" y="85" width="3" height="4"/><rect x="1414" y="94" width="3" height="4" class="bb-win" style="animation-duration:17.2s;animation-delay:-9.9s"/><rect x="1435" y="94" width="3" height="4"/><rect x="1449" y="103" width="3" height="4"/><rect x="1428" y="112" width="3" height="4"/><rect x="1449" y="112" width="3" height="4"/><rect x="1464" y="70" width="3" height="4" fill="#9fe6ff"/><rect x="1471" y="97" width="3" height="4"/><rect x="1478" y="97" width="3" height="4"/><rect x="1485" y="97" width="3" height="4"/><rect x="1464" y="106" width="3" height="4" class="bb-win" style="animation-duration:17.0s;animation-delay:-16.3s"/><rect x="1471" y="106" width="3" height="4"/><rect x="1464" y="115" width="3" height="4"/><rect x="1492" y="115" width="3" height="4"/><rect x="1505" y="28" width="3" height="4"/><rect x="1505" y="46" width="3" height="4" fill="#9fe6ff"/><rect x="1512" y="55" width="3" height="4" class="bb-win" style="animation-duration:16.6s;animation-delay:-7.7s"/><rect x="1505" y="82" width="3" height="4" class="bb-win" style="animation-duration:16.1s;animation-delay:-18.4s"/><rect x="1505" y="100" width="3" height="4"/><rect x="1512" y="100" width="3" height="4" class="bb-win" style="animation-duration:18.7s;animation-delay:-16.7s"/><rect x="1540" y="28" width="3" height="4"/><rect x="1547" y="28" width="3" height="4"/><rect x="1547" y="37" width="3" height="4"/><rect x="1533" y="46" width="3" height="4"/><rect x="1526" y="55" width="3" height="4" fill="#9fe6ff"/><rect x="1547" y="55" width="3" height="4"/><rect x="1526" y="64" width="3" height="4"/><rect x="1540" y="73" width="3" height="4"/><rect x="1526" y="82" width="3" height="4" fill="#9fe6ff"/><rect x="1533" y="82" width="3" height="4" fill="#9fe6ff"/><rect x="1547" y="82" width="3" height="4"/><rect x="1540" y="91" width="3" height="4"/><rect x="1547" y="100" width="3" height="4" class="bb-win" style="animation-duration:18.3s;animation-delay:-15.6s"/><rect x="1569" y="45" width="3" height="4" class="bb-win" style="animation-duration:18.3s;animation-delay:-9.7s"/><rect x="1583" y="54" width="3" height="4"/><rect x="1569" y="72" width="3" height="4" class="bb-win" style="animation-duration:18.8s;animation-delay:-19.5s"/><rect x="1562" y="81" width="3" height="4"/><rect x="1576" y="81" width="3" height="4"/><rect x="1562" y="99" width="3" height="4" class="bb-win" style="animation-duration:14.9s;animation-delay:-9.5s"/><rect x="1583" y="99" width="3" height="4"/><rect x="1562" y="108" width="3" height="4"/><rect x="1562" y="117" width="3" height="4"/><rect x="1608" y="68" width="3" height="4" fill="#9fe6ff" class="bb-win" style="animation-duration:16.5s;animation-delay:-12.1s"/><rect x="1608" y="77" width="3" height="4"/><rect x="1608" y="86" width="3" height="4"/><rect x="1601" y="104" width="3" height="4" class="bb-win" style="animation-duration:15.7s;animation-delay:-19.2s"/><rect x="1601" y="113" width="3" height="4"/><rect x="1623" y="87" width="3" height="4" class="bb-win" style="animation-duration:16.6s;animation-delay:-14.5s"/><rect x="1637" y="87" width="3" height="4"/><rect x="1644" y="87" width="3" height="4" fill="#9fe6ff"/><rect x="1630" y="105" width="3" height="4"/><rect x="1637" y="105" width="3" height="4" class="bb-win" style="animation-duration:19.3s;animation-delay:-13.2s"/><rect x="1623" y="114" width="3" height="4" fill="#9fe6ff" class="bb-win" style="animation-duration:16.4s;animation-delay:-6.9s"/><rect x="1630" y="114" width="3" height="4"/><rect x="1644" y="114" width="3" height="4"/><rect x="1684" y="92" width="3" height="4" class="bb-win" style="animation-duration:16.5s;animation-delay:-17.4s"/><rect x="1663" y="101" width="3" height="4" fill="#9fe6ff"/><rect x="1684" y="110" width="3" height="4"/><rect x="1732" y="52" width="3" height="4" class="bb-win" style="animation-duration:13.7s;animation-delay:-14.9s"/><rect x="1697" y="61" width="3" height="4"/><rect x="1718" y="61" width="3" height="4" class="bb-win" style="animation-duration:17.7s;animation-delay:-17.0s"/><rect x="1725" y="61" width="3" height="4"/><rect x="1732" y="61" width="3" height="4" fill="#9fe6ff"/><rect x="1732" y="79" width="3" height="4" fill="#9fe6ff"/><rect x="1697" y="88" width="3" height="4" fill="#9fe6ff" class="bb-win" style="animation-duration:12.7s;animation-delay:-10.5s"/><rect x="1718" y="88" width="3" height="4" fill="#9fe6ff"/><rect x="1725" y="88" width="3" height="4"/><rect x="1697" y="106" width="3" height="4"/><rect x="1725" y="115" width="3" height="4" fill="#9fe6ff"/><rect x="1750" y="86" width="3" height="4" fill="#9fe6ff"/><rect x="1750" y="95" width="3" height="4"/><rect x="1778" y="95" width="3" height="4"/><rect x="1785" y="95" width="3" height="4"/><rect x="1757" y="104" width="3" height="4"/><rect x="1771" y="104" width="3" height="4"/><rect x="1778" y="104" width="3" height="4"/><rect x="1785" y="104" width="3" height="4" class="bb-win" style="animation-duration:19.0s;animation-delay:-0.3s"/><rect x="1757" y="113" width="3" height="4"/><rect x="1803" y="30" width="3" height="4"/><rect x="1824" y="30" width="3" height="4"/><rect x="1831" y="30" width="3" height="4"/><rect x="1817" y="39" width="3" height="4"/><rect x="1824" y="39" width="3" height="4" fill="#9fe6ff" class="bb-win" style="animation-duration:12.1s;animation-delay:-10.1s"/><rect x="1817" y="48" width="3" height="4" class="bb-win" style="animation-duration:16.1s;animation-delay:-11.9s"/><rect x="1831" y="48" width="3" height="4"/><rect x="1824" y="57" width="3" height="4" fill="#9fe6ff"/><rect x="1810" y="66" width="3" height="4"/><rect x="1838" y="66" width="3" height="4" fill="#9fe6ff"/><rect x="1803" y="75" width="3" height="4"/><rect x="1824" y="93" width="3" height="4" class="bb-win" style="animation-duration:12.3s;animation-delay:-18.0s"/><rect x="1838" y="93" width="3" height="4"/><rect x="1803" y="102" width="3" height="4"/><rect x="1810" y="102" width="3" height="4"/><rect x="1838" y="102" width="3" height="4"/><rect x="1810" y="111" width="3" height="4"/><rect x="1824" y="111" width="3" height="4" fill="#9fe6ff"/><rect x="1831" y="111" width="3" height="4"/></g><line x1="760.5" y1="22" x2="760.5" y2="-4" stroke="#1b2850" stroke-width="3"/><circle cx="760.5" cy="-5" r="3.2" fill="#e2524a" class="anim-blink"/><line x1="1510.5" y1="21" x2="1510.5" y2="-5" stroke="#1b2850" stroke-width="3"/><circle cx="1510.5" cy="-6" r="3.2" fill="#e2524a" class="anim-blink"/></svg>
+      </div>
     </section>
 
-    <!-- ===================== Why bitsbeam ===================== -->
-    <section id="why" class="container about" aria-labelledby="about-title">
-      <div class="about__copy">
-        <p class="eyebrow">Why “bitsbeam”?</p>
-        <h2 id="about-title" class="section-title">The UFO never drops the cow.</h2>
-        <p class="about__text">A flying saucer beams the cow up whole — nothing lost on the way. That's how we treat your data: every bit, beamed from where it is to where it needs to be.</p>
-        <div class="hero__actions">
-          <a class="btn btn--primary" href="about.html">About →</a>
+    <!-- 0101 ticker -->
+    <div class="bb-ticker" aria-hidden="true"><div class="bb-ticker__track"><span>01100010 01101001 01110100 01110011 01100010 01100101 01100001 01101101 <b>= bitsbeam</b></span><span>01100011 01101111 01110111 <b>= cow</b></span><span>01100010 01101001 01110100 01110011 01100010 01100101 01100001 01101101 <b>= bitsbeam</b></span><span>01100011 01101111 01110111 <b>= cow</b></span><span>01100010 01101001 01110100 01110011 01100010 01100101 01100001 01101101 <b>= bitsbeam</b></span><span>01100011 01101111 01110111 <b>= cow</b></span><span>01100010 01101001 01110100 01110011 01100010 01100101 01100001 01101101 <b>= bitsbeam</b></span><span>01100011 01101111 01110111 <b>= cow</b></span><span>01100010 01101001 01110100 01110011 01100010 01100101 01100001 01101101 <b>= bitsbeam</b></span><span>01100011 01101111 01110111 <b>= cow</b></span><span>01100010 01101001 01110100 01110011 01100010 01100101 01100001 01101101 <b>= bitsbeam</b></span><span>01100011 01101111 01110111 <b>= cow</b></span><span>01100010 01101001 01110100 01110011 01100010 01100101 01100001 01101101 <b>= bitsbeam</b></span><span>01100011 01101111 01110111 <b>= cow</b></span><span>01100010 01101001 01110100 01110011 01100010 01100101 01100001 01101101 <b>= bitsbeam</b></span><span>01100011 01101111 01110111 <b>= cow</b></span><span>01100010 01101001 01110100 01110011 01100010 01100101 01100001 01101101 <b>= bitsbeam</b></span><span>01100011 01101111 01110111 <b>= cow</b></span><span>01100010 01101001 01110100 01110011 01100010 01100101 01100001 01101101 <b>= bitsbeam</b></span><span>01100011 01101111 01110111 <b>= cow</b></span><span>01100010 01101001 01110100 01110011 01100010 01100101 01100001 01101101 <b>= bitsbeam</b></span><span>01100011 01101111 01110111 <b>= cow</b></span><span>01100010 01101001 01110100 01110011 01100010 01100101 01100001 01101101 <b>= bitsbeam</b></span><span>01100011 01101111 01110111 <b>= cow</b></span></div></div>
+
+    <!-- ===================== 01 Company ===================== -->
+    <section id="company" class="bb-section">
+      <div class="container bb-split">
+        <div class="bb-split__head">
+          <p class="bb-label"><b>01</b>Company</p>
+          <h2 class="bb-h2">We build the plumbing for data in transit.</h2>
+        </div>
+        <ol class="bb-principles">
+          <li class="bb-principle"><span class="bb-principle__n">01</span><div><h3>Nothing dropped</h3><p>Delivery guarantees come first. Every tool we ship is built around one rule: what goes in comes out the other side.</p></div></li>
+          <li class="bb-principle"><span class="bb-principle__n">10</span><div><h3>Open by default</h3><p>Everything we build is MIT licensed and developed in the open on GitHub.</p></div></li>
+          <li class="bb-principle"><span class="bb-principle__n">11</span><div><h3>Boring to run</h3><p>Fewer moving parts, fewer boxes to babysit. Plain Ruby on proven foundations like NATS and Chrome.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===================== 10 Products ===================== -->
+    <section id="products" class="bb-section bb-section--deep">
+      <div class="container bb-products">
+        <div class="bb-split__head">
+          <p class="bb-label"><b>10</b>Products</p>
+          <h2 class="bb-h2">Four crafts in orbit.</h2>
+        </div>
+
+        <div class="bb-group">
+          <p class="bb-group__label"><span>Messaging &amp; background jobs</span></p>
+        <a class="bb-product" href="https://cosmonats.bitsbeam.com" style="--craft: oklch(0.84 0.12 205)">
+          <img src="assets/img/cosmonats.svg" alt="" width="56" height="56">
+          <span class="bb-product__name">Cosmonats<span class="bb-product__sub">Jobs &amp; streams on NATS</span></span>
+          <span class="bb-product__desc">Background jobs and real-time event streaming for Ruby — one gem, backed by NATS. No Redis. No DB polling. No message silently dropped.</span>
+          <span class="bb-product__go">cosmonats.bitsbeam.com →</span>
+        </a>
+        </div>
+
+        <div class="bb-group">
+          <p class="bb-group__label"><span>RubyCDP · Chrome automation for Ruby</span><a href="https://rubycdp.com">rubycdp.com ↗</a></p>
+        <a class="bb-product" href="https://ferrum.rubycdp.com" style="--craft: #a07cff">
+          <img src="assets/img/ferrum.svg" alt="" width="56" height="56">
+          <span class="bb-product__name">Ferrum<span class="bb-product__sub">Ruby Chrome driver</span></span>
+          <span class="bb-product__desc">A high-level Ruby API to Chrome over raw CDP — no Selenium, no WebDriver, no ChromeDriver.</span>
+          <span class="bb-product__go">ferrum.rubycdp.com →</span>
+        </a>
+        <a class="bb-product" href="https://cuprite.rubycdp.com" style="--craft: #ff3f7f">
+          <img src="assets/img/cuprite.svg" alt="" width="56" height="56">
+          <span class="bb-product__name">Cuprite<span class="bb-product__sub">Capybara driver</span></span>
+          <span class="bb-product__desc">A pure Ruby Capybara driver built on Ferrum. Pause any spec mid-flight and poke around.</span>
+          <span class="bb-product__go">cuprite.rubycdp.com →</span>
+        </a>
+        <a class="bb-product" href="https://vessel.rubycdp.com" style="--craft: #2fc6ff">
+          <img src="assets/img/vessel.svg" alt="" width="56" height="56">
+          <span class="bb-product__name">Vessel<span class="bb-product__sub">Web crawler</span></span>
+          <span class="bb-product__desc">A web crawling framework on Ferrum. Describe your Cargo, set sail, haul the data home.</span>
+          <span class="bb-product__go">vessel.rubycdp.com →</span>
+        </a>
         </div>
       </div>
+    </section>
+
+    <!-- ===================== 11 Why bitsbeam ===================== -->
+    <section id="why" class="bb-section">
+      <div class="container bb-split bb-split--center">
+        <div class="bb-split__head">
+          <p class="bb-label"><b>11</b>Why “bitsbeam”?</p>
+          <h2 class="bb-h2">The UFO never drops the cow.</h2>
+          <p class="bb-text">A flying saucer beams the cow up whole — nothing lost on the way. That's how data is treated: every bit, beamed from where it is to where it needs to be.</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="about.html">About →</a>
+          </div>
+        </div>
       <div class="panel bits-panel">
         <div class="bits-panel__bits">01100011 01101111 01110111 00100000 01100010 01100101 01100001 01101101 01100101 01100100 00100000 01110101 01110000 00100000 01110011 01100001 01100110 01100101 01101100 01111001</div>
         <div class="bits-panel__foot">
@@ -142,77 +198,42 @@
           <span class="bits-panel__caption">“cow”, in transit</span>
         </div>
       </div>
-    </section>
-
-    <!-- ===================== Fleet ===================== -->
-    <section id="fleet" class="container fleet" aria-labelledby="fleet-title">
-      <div class="section-head">
-        <div class="section-head__titles">
-          <p class="eyebrow">The fleet</p>
-          <h2 id="fleet-title" class="section-title">Crafts we've launched.</h2>
-        </div>
-        <span class="section-head__meta">4 crafts in orbit</span>
-      </div>
-
-      <a class="post-feature" href="https://cosmonats.bitsbeam.com">
-        <div class="post-feature__art" aria-hidden="true">
-          <div class="post-feature__bits">01100011 01101111 01110111 00100000 01100010 01100101 01100001 01101101 01100101 01100100 00100000 01110101 01110000 00100000 01110011 01100001 01100110 01100101 01101100 01111001 01100011 01101111 01110111 00100000 01100010 01100101 01100001 01101101 01100101 01100100 00100000 01110101 01110000 00100000 01110011 01100001 01100110 01100101 01101100 01111001</div>
-          <div class="post-feature__emblem">
-            <img src="assets/img/cosmonats.svg" alt="">
-            <span class="post-feature__emblem-tag">Ruby gem</span>
-          </div>
-        </div>
-        <div class="post-feature__body">
-          <div class="post-meta">
-            <span class="badge">In orbit</span>
-            <span class="post-meta__accent">Craft #001</span>
-            <span>MIT licensed</span>
-          </div>
-          <h3 class="post-feature__title">Cosmonats</h3>
-          <p class="post-feature__excerpt">Background jobs and real-time event streaming for Ruby — one gem, backed by NATS. No Redis. No DB polling. No message silently dropped.</p>
-          <span class="read-more">Visit cosmonats →</span>
-        </div>
-      </a>
-
-      <p class="post-list__label">RubyCDP trilogy · Ruby × Chrome DevTools · <a href="https://rubycdp.com">rubycdp.com ↗</a></p>
-      <div class="fleet-grid">
-        <a class="craft-card" href="https://ferrum.rubycdp.com" style="--craft: #a07cff">
-          <img class="craft-card__logo" src="assets/img/ferrum.svg" alt="" width="72" height="72">
-          <div class="post-meta"><span class="post-meta__accent">Craft #002</span><span>Ruby gem</span></div>
-          <h3 class="craft-card__title">Ferrum</h3>
-          <p class="craft-card__kicker">The fearless Ruby Chrome driver</p>
-          <p class="craft-card__desc">A high-level Ruby API to Chrome over raw CDP — no Selenium, no WebDriver, no ChromeDriver.</p>
-          <span class="craft-card__more">Visit ferrum.rubycdp.com →</span>
-        </a>
-        <a class="craft-card" href="https://cuprite.rubycdp.com" style="--craft: #ff3f7f">
-          <img class="craft-card__logo" src="assets/img/cuprite.svg" alt="" width="72" height="72">
-          <div class="post-meta"><span class="post-meta__accent">Craft #003</span><span>Ruby gem</span></div>
-          <h3 class="craft-card__title">Cuprite</h3>
-          <p class="craft-card__kicker">Headless Chrome driver for Capybara</p>
-          <p class="craft-card__desc">A pure Ruby Capybara driver built on Ferrum. Pause any spec mid-flight and poke around.</p>
-          <span class="craft-card__more">Visit cuprite.rubycdp.com →</span>
-        </a>
-        <a class="craft-card" href="https://vessel.rubycdp.com" style="--craft: #2fc6ff">
-          <img class="craft-card__logo" src="assets/img/vessel.svg" alt="" width="72" height="72">
-          <div class="post-meta"><span class="post-meta__accent">Craft #004</span><span>Ruby gem</span></div>
-          <h3 class="craft-card__title">Vessel</h3>
-          <p class="craft-card__kicker">Fast as Chrome. Dead simple.</p>
-          <p class="craft-card__desc">A web crawling framework on Ferrum. Describe your Cargo, set sail, haul the data home.</p>
-          <span class="craft-card__more">Visit vessel.rubycdp.com →</span>
-        </a>
       </div>
     </section>
-
   </main>
 
   <!-- ===================== Footer ===================== -->
-  <footer class="site-footer">
-    <span>© 2026 bitsbeam</span>
-    <nav class="site-footer__links" aria-label="Footer">
-      <a href="https://github.com/bitsbeam">GitHub</a>
-      <a href="https://cosmonats.bitsbeam.com">Cosmonats</a>
-      <a href="#top">Back to the saucer ↑</a>
-    </nav>
+  <footer class="bb-footer">
+    <div class="container">
+      <div class="bb-footer__grid">
+        <div class="bb-footer__brand">
+          <a class="brand" href="#top"><img class="brand__logo" src="assets/img/logo.svg" alt="" width="38" height="38"><span class="brand__name">bitsbeam</span></a>
+          <p>Every bit counts. Every bit beamed. Nothing dropped on the way.</p>
+        </div>
+        <nav class="bb-footer__col" aria-label="Products">
+          <h4>Products</h4>
+          <a href="https://cosmonats.bitsbeam.com">Cosmonats</a>
+          <a href="https://ferrum.rubycdp.com">Ferrum</a>
+          <a href="https://cuprite.rubycdp.com">Cuprite</a>
+          <a href="https://vessel.rubycdp.com">Vessel</a>
+        </nav>
+        <nav class="bb-footer__col" aria-label="Open source">
+          <h4>Open source</h4>
+          <a href="https://github.com/bitsbeam">github.com/bitsbeam</a>
+          <a href="https://github.com/rubycdp">github.com/rubycdp</a>
+          <a href="https://rubycdp.com">rubycdp.com</a>
+        </nav>
+        <nav class="bb-footer__col" aria-label="Company">
+          <h4>Company</h4>
+          <a href="about.html">About</a>
+          <a href="#why">Why bitsbeam</a>
+        </nav>
+      </div>
+      <div class="bb-footer__legal">
+        <span>© 2026 bitsbeam</span>
+        <span>All products MIT licensed</span>
+      </div>
+    </div>
   </footer>
 </body>
 </html>
