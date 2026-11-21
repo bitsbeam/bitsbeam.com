@@ -378,20 +378,36 @@
 
   const FIRST_MS = 14000;              // first abduction after load
   const GAP_MIN = 40000, GAP_MAX = 70000;
+  const MOO_EVERY = 8000;              // the cow moos on its own every 8s
+  const MOO = 1800;                    // ...and once more right before it's lifted
   const steps = [                      // [ms from start, class, add?]
-    [0,     'abduct-lift',     true],  // cow rises, shrinking into the saucer
-    [2900,  'abduct-beam-off', true],  // beam shuts down
-    [3700,  'abduct-away',     true],  // saucer flies off, getting smaller
-    [8200,  'abduct-away',     false], // ...comes back
-    [10800, 'abduct-beam-off', false], // beam on
-    [11500, 'abduct-lift',     false], // cow lowered back down
+    [MOO,         'abduct-lift',     true],  // cow rises, shrinking into the saucer
+    [MOO + 2900,  'abduct-beam-off', true],  // beam shuts down
+    [MOO + 3700,  'abduct-away',     true],  // saucer flies off, getting smaller
+    [MOO + 4400,  'abduct-q1',       true],  // "Has the cow been abducted?"
+    [MOO + 8200,  'abduct-away',     false], // ...comes back
+    [MOO + 8200,  'abduct-q2',       true],  // "...or gifted to humanity?"
+    [MOO + 10800, 'abduct-beam-off', false], // beam on
+    [MOO + 11500, 'abduct-lift',     false], // cow lowered back down
+    [MOO + 14000, 'abduct-q1',       false], // captions fade once the cow is down
+    [MOO + 14000, 'abduct-q2',       false],
   ];
-  const DURATION = 14500;
+  const DURATION = MOO + 14500;
+
+  let busy = false, mooTimer;
+  function moo(ms) {                   // "Mooooo!" bubble, mouth open
+    clearTimeout(mooTimer);
+    scene.classList.add('abduct-moo');
+    mooTimer = setTimeout(() => scene.classList.remove('abduct-moo'), ms);
+  }
+  setInterval(() => { if (!busy && !document.hidden) moo(1600); }, MOO_EVERY);
 
   function run() {
     if (document.hidden) return schedule();
+    busy = true;
+    moo(MOO - 200);
     steps.forEach(([t, cls, on]) => setTimeout(() => scene.classList.toggle(cls, on), t));
-    setTimeout(schedule, DURATION);
+    setTimeout(() => { busy = false; schedule(); }, DURATION);
   }
   function schedule(ms) {
     setTimeout(run, ms != null ? ms : GAP_MIN + Math.random() * (GAP_MAX - GAP_MIN));

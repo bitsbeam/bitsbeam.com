@@ -1105,6 +1105,34 @@ textarea.field__input { resize: vertical; min-height: 140px; line-height: 1.5; }
   opacity: 0;
   transition: transform 2.6s cubic-bezier(.55, 0, .7, .4), opacity .35s ease-in 2.3s;
 }
+/* captions while the cow is away: question, then the twist on the saucer's return */
+.ufo-scene__caption {
+  position: absolute; left: 0; right: 0; top: 76%; z-index: 3; margin: 0;
+  display: flex; flex-direction: column; align-items: center; gap: .35em;
+  font-family: var(--font-mono); font-size: clamp(13px, 1.25vw, 17px); font-weight: 700;
+  text-align: center; pointer-events: none;
+}
+.ufo-scene__caption span {
+  opacity: 0; transform: translateY(6px);
+  padding: .15em .6em; border-radius: 6px; background: rgba(11, 15, 30, .78);
+  transition: opacity .5s ease, transform .5s ease;
+}
+.ufo-scene__caption span:first-child { color: #f4f1e8; }
+.ufo-scene__caption span:last-child { color: #8fe36f; }
+.ufo-scene.abduct-q1 .ufo-scene__caption span:first-child,
+.ufo-scene.abduct-q2 .ufo-scene__caption span:last-child { opacity: 1; transform: none; }
+/* the moo: bubble pops in from the cow's head, mouth opens and closes */
+.ufo-scene__moo {
+  opacity: 0; transform: scale(.4); transform-box: fill-box; transform-origin: 8% 100%;
+  transition: opacity .2s ease, transform .2s ease;
+}
+.ufo-scene__mouth { transform: scaleY(0); transform-box: fill-box; transform-origin: center; }
+.ufo-scene.abduct-moo .ufo-scene__moo {
+  opacity: 1; transform: scale(1);
+  transition: opacity .15s ease-out, transform .35s cubic-bezier(.3, 1.6, .5, 1);
+}
+.ufo-scene.abduct-moo .ufo-scene__mouth { animation: moo-mouth .5s ease-in-out 3; }
+@keyframes moo-mouth { 0%, 100% { transform: scaleY(.2) } 50% { transform: scaleY(1) } }
 .ufo-scene.abduct-beam-off .beam,
 .ufo-scene.abduct-beam-off .ufo-scene__ufo > polygon { opacity: 0; }
 .ufo-scene.abduct-away .ufo-scene__layer:not(.ufo-scene__layer--front) {
