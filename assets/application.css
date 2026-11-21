@@ -1089,10 +1089,10 @@ textarea.field__input { resize: vertical; min-height: 140px; line-height: 1.5; }
 
 /* bitsbeam: abduction sequence (driven by application.js §6) ------------- */
 /* Percentages are of the 400×480 scene: cow centre ≈ 55% 62%, saucer belly ≈ 50% 26%. */
-.ufo-scene[data-abduct] .ufo-scene__layer--front {
-  transform-origin: 55% 62%;
-  transition: transform 2.6s cubic-bezier(.3, .1, .3, 1), opacity .4s ease-out;
-}
+.ufo-scene__lift, .ufo-scene__shrink { transform-box: view-box; transform-origin: 220px 293px; }
+.ufo-scene__lift { transition: transform 2.6s ease-in-out; }
+.ufo-scene__shrink { transition: transform 1.4s ease-out 1.2s; }
+.ufo-scene__hatch-clip { animation: bob 4s ease-in-out infinite; }
 .ufo-scene[data-abduct] .ufo-scene__layer:not(.ufo-scene__layer--front) {
   transform-origin: 50% 22%;
   transition: transform 2.4s cubic-bezier(.2, .7, .3, 1), opacity .3s ease-out;
@@ -1100,10 +1100,13 @@ textarea.field__input { resize: vertical; min-height: 140px; line-height: 1.5; }
 .ufo-scene[data-abduct] .beam,
 .ufo-scene[data-abduct] .ufo-scene__ufo > polygon { transition: opacity .6s ease; }
 
-.ufo-scene.abduct-lift .ufo-scene__layer--front {
-  transform: translate(-5%, -36%) scale(.1);
-  opacity: 0;
-  transition: transform 2.6s cubic-bezier(.55, 0, .7, .4), opacity .35s ease-in 2.3s;
+.ufo-scene.abduct-lift .ufo-scene__lift {
+  transform: translate(-20px, -205px);
+  transition: transform 2.6s cubic-bezier(.5, 0, .75, .6);
+}
+.ufo-scene.abduct-lift .ufo-scene__shrink {
+  transform: scale(.36);
+  transition: transform 1s ease-in-out 1.3s;
 }
 /* captions while the cow is away: question, then the twist on the saucer's return */
 .ufo-scene__caption {
@@ -1159,4 +1162,6 @@ textarea.field__input { resize: vertical; min-height: 140px; line-height: 1.5; }
 .bb-lights .bb-win { animation-name: bb-win; animation-iteration-count: infinite; }
 /* on ~45% of the cycle, then off; cycles of 12–20s give 5–10s dark spells */
 @keyframes bb-win { 0%, 54.9% { opacity: 1; } 55%, 100% { opacity: 0; } }
-@media (prefers-reduced-motion: reduce) { .bb-lights .bb-win { animation: none; } }
+.bb-lights .bb-win--late { animation-name: bb-win-late; }
+@keyframes bb-win-late { 0%, 64.9% { opacity: 0; } 65%, 100% { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .bb-lights .bb-win { animation: none; } .bb-lights .bb-win--late { opacity: 0; } }

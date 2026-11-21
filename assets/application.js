@@ -377,7 +377,7 @@
   if (!scene || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   const FIRST_MS = 14000;              // first abduction after load
-  const GAP_MIN = 40000, GAP_MAX = 70000;
+  const GAP_MIN = 20000, GAP_MAX = 30000;  // pause between abductions
   const MOO_EVERY = 8000;              // the cow moos on its own every 8s
   const MOO = 1800;                    // ...and once more right before it's lifted
   const steps = [                      // [ms from start, class, add?]
