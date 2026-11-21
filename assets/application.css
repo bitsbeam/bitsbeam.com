@@ -1148,7 +1148,7 @@ textarea.field__input { resize: vertical; min-height: 140px; line-height: 1.5; }
   position: absolute; left: 50%; bottom: calc(var(--band-h) * 114 / 240);
   width: calc(var(--band-h) * 520 / 240); height: calc(var(--band-h) * 44 / 240);
   transform: translate(-50%, 50%);
-  background: radial-gradient(closest-side, rgba(143, 227, 111, .4), rgba(143, 227, 111, 0));
+  background: radial-gradient(closest-side, rgba(143, 227, 111, .6), rgba(143, 227, 111, .18) 55%, rgba(143, 227, 111, 0));
   mix-blend-mode: screen; pointer-events: none; z-index: 1;
   transition: opacity .6s ease;
 }
