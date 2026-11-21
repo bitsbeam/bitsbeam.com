@@ -8,11 +8,9 @@
  * quietly does nothing when the hook isn't on the current page:
  *
  *   1. Starfield         <canvas data-starfield>     twinkling parallax stars
- *   2. Beam              [data-beam]                 rising 0101 in the tractor beam
  *   3. Journey           .journey [data-journey-map] scroll-driven rocket / UFO
  *   4. Copy              [data-copy]                 copy-to-clipboard buttons
  *   5. Reading progress  [data-reading-progress]     progress bar on posts
- *   6. Abduction         .ufo-scene[data-abduct]     occasional cow pickup + fly-away
  *   7. Contact           form[data-contact]          mailto: form with a prefilled subject and body
  */
 
@@ -97,45 +95,6 @@
   }
 
   document.querySelectorAll('canvas[data-starfield]').forEach(createStarfield);
-})();
-
-
-/* 2. Beam ================================================================== */
-/**
- * Beam — fills the tractor beam with columns of rising 0/1 digits.
- *
- * Usage: <div class="beam" data-beam data-columns="11"></div>
- */
-(function () {
-  'use strict';
-
-  // Deterministic pseudo-random bit string so the beam looks the same on every load.
-  function bits(seed, length) {
-    let out = '';
-    for (let k = 0; k < length; k++) out += ((seed * 7 + k * 13 + (k * k) % 5) % 3 === 0) ? '1' : '0';
-    return out;
-  }
-
-  document.querySelectorAll('[data-beam]').forEach((beam) => {
-    const columns = parseInt(beam.dataset.columns || '11', 10);
-    const frag = document.createDocumentFragment();
-
-    for (let i = 0; i < columns; i++) {
-      const col = document.createElement('div');
-      col.className = 'beam__col';
-      col.style.left = (20 + i * 5.6) + '%';
-
-      const text = document.createElement('div');
-      text.className = 'beam__bits';
-      text.textContent = bits(i + 1, 34);
-      text.style.setProperty('--dur', (3.2 + (i % 4) * 0.7) + 's');
-      text.style.setProperty('--delay', (-(i * 0.47)) + 's');
-
-      col.appendChild(text);
-      frag.appendChild(col);
-    }
-    beam.appendChild(frag);
-  });
 })();
 
 
@@ -361,58 +320,6 @@
   }, { passive: true });
   window.addEventListener('resize', update);
   update();
-})();
-
-
-/* --------------------------------------------------------------------------
- * 6. Abduction — every so often the cow is beamed all the way up, the beam
- *    shuts off and the saucer flies away, then returns and drops the cow back.
- *
- * Usage: <figure class="ufo-scene" data-abduct> (bitsbeam hero)
- * Phases are CSS classes on the figure; timings live here, motion in CSS.
- * ------------------------------------------------------------------------ */
-(function () {
-  'use strict';
-  const scene = document.querySelector('.ufo-scene[data-abduct]');
-  if (!scene || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-  const FIRST_MS = 14000;              // first abduction after load
-  const GAP_MIN = 20000, GAP_MAX = 30000;  // pause between abductions
-  const MOO_EVERY = 8000;              // the cow moos on its own every 8s
-  const MOO = 1800;                    // ...and once more right before it's lifted
-  const steps = [                      // [ms from start, class, add?]
-    [MOO,         'abduct-lift',     true],  // cow rises, shrinking into the saucer
-    [MOO + 2900,  'abduct-beam-off', true],  // beam shuts down
-    [MOO + 3700,  'abduct-away',     true],  // saucer flies off, getting smaller
-    [MOO + 4400,  'abduct-q1',       true],  // "Has the cow been abducted?"
-    [MOO + 8200,  'abduct-away',     false], // ...comes back
-    [MOO + 8200,  'abduct-q2',       true],  // "...or gifted to humanity?"
-    [MOO + 10800, 'abduct-beam-off', false], // beam on
-    [MOO + 11500, 'abduct-lift',     false], // cow lowered back down
-    [MOO + 14000, 'abduct-q1',       false], // captions fade once the cow is down
-    [MOO + 14000, 'abduct-q2',       false],
-  ];
-  const DURATION = MOO + 14500;
-
-  let busy = false, mooTimer;
-  function moo(ms) {                   // "Mooooo!" bubble, mouth open
-    clearTimeout(mooTimer);
-    scene.classList.add('abduct-moo');
-    mooTimer = setTimeout(() => scene.classList.remove('abduct-moo'), ms);
-  }
-  setInterval(() => { if (!busy && !document.hidden) moo(1600); }, MOO_EVERY);
-
-  function run() {
-    if (document.hidden) return schedule();
-    busy = true;
-    moo(MOO - 200);
-    steps.forEach(([t, cls, on]) => setTimeout(() => scene.classList.toggle(cls, on), t));
-    setTimeout(() => { busy = false; schedule(); }, DURATION);
-  }
-  function schedule(ms) {
-    setTimeout(run, ms != null ? ms : GAP_MIN + Math.random() * (GAP_MAX - GAP_MIN));
-  }
-  schedule(FIRST_MS);
 })();
 
 
